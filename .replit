@@ -18,6 +18,7 @@ message = "We see that you are using require(...) inside your code. We currently
 
 [nix]
 channel = "stable-22_11"
+pkgs = ["nodejs-18_x", "npm-8_19_4"]
 
 [env]
 XDG_CONFIG_HOME = "/home/runner/.config"
