@@ -17,7 +17,8 @@ regex = "Error \\[ERR_REQUIRE_ESM\\]"
 message = "We see that you are using require(...) inside your code. We currently do not support this syntax. Please use 'import' instead when using external modules. (https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import)"
 
 [nix]
-channel = "stable-22_11"
+channel = "stable-23_11"
+deps = ["pkgs.nodejs-20_x"]
 
 [env]
 XDG_CONFIG_HOME = "/home/runner/.config"
@@ -85,6 +86,10 @@ pattern = "**/{*.js,*.jsx,*.ts,*.tsx}"
 
 [languages.javascript.languageServer]
 start = "typescript-language-server --stdio"
+
+[[ports]]
+localPort = 44613
+externalPort = 3002
 
 [[ports]]
 localPort = 45129
