@@ -1,7 +1,7 @@
 entrypoint = "index.js"
 
 hidden = [".config", "package-lock.json"]
-modules = ["python-3.11"]
+modules = ["nodejs-20", "python-3.11"]
 
 [interpreter]
 command = [
@@ -98,3 +98,15 @@ externalPort = 3001
 [[ports]]
 localPort = 46463
 externalPort = 80
+
+[workflows]
+runButton = "Run Discord Bot"
+
+[[workflows.workflow]]
+name = "Run Discord Bot"
+author = 3566910
+mode = "sequential"
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "node index.js"

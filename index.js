@@ -7,17 +7,16 @@ const { token } = require('./config.json');
 const client = new Client({ intents: [GatewayIntentBits.Guilds] });
 
 // Keep-alive server for hosting
-const http = require("http");
 const express = require("express");
 const app = express();
 app.get("/", (request, response) => {
   console.log("Pinging");
   response.sendStatus(200);
 });
-app.listen(process.env.PORT);
-setInterval(() => {
-  http.get(`http://${process.env.PROJECT_DOMAIN}.glitch.me/`);
-}, 280000);
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, "0.0.0.0", () => {
+  console.log(`Keep-alive server running on port ${PORT}`);
+});
 
 // Load commands
 client.commands = new Collection();
