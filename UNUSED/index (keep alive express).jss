@@ -13,16 +13,15 @@ const client = new Client({
 });
 
 // Keep-alive server for hosting (like on Replit)
-const express = require('express');
+const express = require("express");
 const app = express();
-const port = 3000;
-
-app.get('/', (req, res) => {
-  res.send('Bot is alive!');
+app.get("/", (request, response) => {
+  console.log("Pinging");
+  response.sendStatus(200);
 });
-
-app.listen(port, () => {
-  console.log(`Server is running on http://localhost:${port}`);
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, "0.0.0.0", () => {
+  console.log(`Keep-alive server running on port ${PORT}`);
 });
 
 // Load commands
